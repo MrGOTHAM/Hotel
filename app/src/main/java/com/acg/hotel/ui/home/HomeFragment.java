@@ -55,6 +55,8 @@ import java.util.Locale;
 public class HomeFragment extends Fragment {
 
     private static final String TAG = "HomeFragment";
+
+    private static final int OPEN_LOGIN_PAGE_REQUEST_CODE = 1001;
     // 存放选择的入住和离店日期
     private Date[] mSelectDate = new Date[2];
     private Activity mActivityContext;
@@ -191,13 +193,17 @@ public class HomeFragment extends Fragment {
     }
 
     private void initDateWidget() {
+        Log.e(TAG, " 展示数据");
         //入住离店日期选择部分
         //入店日期
         Date dateStart = DateTimeTools.getOnlyDate(new Date());
         // 默认离店时间为第二天
         Date dateEnd = DateTimeTools.dateAddDay(new Date(), 1);
-        mSelectDate[0] = dateStart;
-        mSelectDate[1] = dateEnd;
+
+        if (mSelectDate[0] == null || mSelectDate[1] == null) {
+            mSelectDate[0] = dateStart;
+            mSelectDate[1] = dateEnd;
+        }
         // 设置日期选择控制权限
         // 10天后----限制日期控件
         Date dateTenDay = DateTimeTools.dateAddDay(dateStart, 11);
@@ -256,10 +262,27 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(mActivityContext, SearchResultActivity.class);
                 // 通过bundle，将用户选择的日期传递给SearchResultActivity
-                intent.putExtra("longSelectDates",new long[]{mSelectDate[0].getTime(), mSelectDate[1].getTime()});
-                startActivity(intent);
+                intent.putExtra("longSelectDates", new long[]{mSelectDate[0].getTime(), mSelectDate[1].getTime()});
+                startActivityForResult(intent, OPEN_LOGIN_PAGE_REQUEST_CODE);
             }
         });
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode != Activity.RESULT_OK) {
+            Log.e(TAG, " 没有收到了数据");
+            return;
+        } else {
+            long[] longSelectDates = data.getLongArrayExtra("longSelectDates");
+            if (longSelectDates != null && longSelectDates.length == 2) {
+                mSelectDate[0] = new Date(longSelectDates[0]);
+                mSelectDate[1] = new Date(longSelectDates[1]);
+                Log.e(TAG, " 收到了数据");
+                initDateWidget();
+            }
+        }
     }
 }

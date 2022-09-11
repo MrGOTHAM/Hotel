@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 import com.acg.hotel.bean.UserSmsParam;
 import com.google.gson.Gson;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +32,17 @@ public class ExampleUnitTest {
         userSmsParam.setRegister(true);
         String s = gson.toJson(userSmsParam);
         System.out.println(s);
+
+    }
+
+    @Test
+    public void test2(){
+        Date[] mSelectDate = new Date[2];
+        System.out.println(mSelectDate[0] == null);
+
+
+
+
 
     }
 }
