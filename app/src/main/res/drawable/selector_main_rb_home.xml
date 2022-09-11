@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--    被选中时显示-->
+    <item android:drawable="@drawable/ic_rb_home_red"  android:state_checked="true"/>
+
+    <!--    正常情况下显示-->
+    <item android:drawable="@drawable/ic_rb_home"/>
+</selector>

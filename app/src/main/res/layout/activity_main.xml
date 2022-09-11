@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:background="@drawable/bg_layout_border_top"
+        android:paddingTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!--        这里不能用background，而要用drawableTop-->
+<!--        drawableTop顶部图标-->
+        <RadioButton
+            android:id="@+id/rb_main_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_main_rb_home"
+            android:gravity="center_horizontal"
+            android:text="主页"
+            android:textColor="@drawable/selector_main_rb_text_color"
+            android:textAlignment="center" />
+
+        <RadioButton
+            android:id="@+id/rb_main_order"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_main_rb_order"
+            android:gravity="center_horizontal"
+            android:text="订单"
+            android:textColor="@drawable/selector_main_rb_text_color"
+            android:textAlignment="center" />
+
+        <RadioButton
+            android:id="@+id/rb_main_mine"
+            android:textColor="@drawable/selector_main_rb_text_color"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_main_rb_mine"
+            android:gravity="center_horizontal"
+            android:text="我的"
+            android:textAlignment="center" />
+
+
+    </RadioGroup>
+
+</LinearLayout>

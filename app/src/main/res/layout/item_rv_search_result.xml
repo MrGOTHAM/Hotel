@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dp">
+
+<!--    客房图片显示-->
+    <FrameLayout
+        android:id="@+id/fl_item_result_picture"
+        android:layout_width="90dp"
+        android:layout_height="90dp">
+
+        <ImageView
+            android:id="@+id/iv_item_result_room_picture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="客房类型照片"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tv_item_result_room_minimum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:background="@drawable/bg_tv_tag_style"
+            android:text="3间"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+    </FrameLayout>
+
+<!--    客房信息-->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tv_item_result_room_type_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="房型名称"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_item_result_room_type_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="有窗 10m2 wifi覆盖"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+<!--    客房价格信息-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥" />
+
+            <TextView
+                android:id="@+id/tv_item_result_room_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="200"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="门市价 ￥"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_item_result_room_traditional_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="210"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
